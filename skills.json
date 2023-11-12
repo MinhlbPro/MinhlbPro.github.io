@@ -1,0 +1,101 @@
+[
+    {
+        "name": "Java",
+        "icon": "https://img.icons8.com/color/48/000000/java-coffee-cup-logo--v1.png"
+    },
+    {
+        "name": "Python",
+        "icon": "https://img.icons8.com/color/48/000000/python--v1.png"
+    },
+    {
+        "name": "NodeJS",
+        "icon": "https://img.icons8.com/color/48/000000/nodejs.png"
+    },
+    {
+        "name": "ExpressJS",
+        "icon": "https://img.icons8.com/fluency/48/000000/node-js.png"
+    },
+    {
+        "name": "JavaScript",
+        "icon": "https://img.icons8.com/color/48/000000/javascript--v1.png"
+    },
+    {
+        "name": "Angular",
+        "icon": "https://img.icons8.com/external-tal-revivo-shadow-tal-revivo/48/000000/external-angular-a-typescript-based-open-source-web-application-framework-logo-shadow-tal-revivo.png"
+    },
+    {
+        "name": "VueJS",
+        "icon": "https://img.icons8.com/color/48/000000/vue-js.png"
+    },
+    {
+        "name": "HTML5",
+        "icon": "https://img.icons8.com/color/48/000000/html-5--v1.png"
+    },
+    {
+        "name": "CSS3",
+        "icon": "https://img.icons8.com/color/48/000000/css3.png"
+    },
+    {
+        "name": "MaterialUI",
+        "icon": "https://img.icons8.com/color/48/000000/material-ui.png"
+    },
+ 
+    {
+        "name": "TailwindCSS",
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/48px-Tailwind_CSS_Logo.png"
+    },
+    {
+        "name": "Bootstrap",
+        "icon": "https://img.icons8.com/color/48/000000/bootstrap.png"
+    },
+    {
+        "name": "Sass",
+        "icon": "https://img.icons8.com/color/48/000000/sass.png"
+    },
+    {
+        "name": "Firebase",
+        "icon": "https://img.icons8.com/color/48/000000/firebase.png"
+    },
+    {
+        "name": "MongoDB",
+        "icon": "https://img.icons8.com/color/48/000000/mongodb.png"
+    },
+    {
+        "name": "MySQL",
+        "icon": "https://img.icons8.com/color/48/000000/mysql-logo.png"
+    },
+    {
+        "name": "PostgreSQL",
+        "icon": "https://img.icons8.com/color/48/000000/postgreesql.png"
+    },
+
+    {
+        "name": "Heroku",
+        "icon": "https://img.icons8.com/color/48/000000/heroku.png"
+    },
+   
+    {
+        "name": "jQuery",
+        "icon": "https://img.icons8.com/ios-filled/48/1169ae/jquery.png"
+    },
+    {
+        "name": "Git VCS",
+        "icon": "https://img.icons8.com/color/48/000000/git.png"
+    },
+    {
+        "name": "Adobe Photoshop",
+        "icon": "https://img.icons8.com/fluency/48/000000/adobe-photoshop.png"
+    },
+    {
+        "name": "Adobe Illustrator",
+        "icon": "https://img.icons8.com/fluency/48/000000/adobe-illustrator.png"
+    },
+    {
+        "name": "Adobe Premiere Pro ",
+        "icon": "https://img.icons8.com/color/48/000000/adobe-premiere-pro--v1.png"
+    },
+    {
+        "name": "Figma",
+        "icon": "https://img.icons8.com/fluency/48/000000/figma.png"
+    }
+]
