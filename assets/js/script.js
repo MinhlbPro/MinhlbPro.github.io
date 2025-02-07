@@ -45,7 +45,7 @@ $(document).ready(function () {
     emailjs.init("2g4bQ8IcJwigag6li");
 
     emailjs
-      .sendForm("contact_service", "template_contact", "#contact-form")
+      .sendForm("service_2pdikue", "template_wfmg0sn", "#contact-form")
       .then(
         function (response) {
           console.log("SUCCESS!", response.status, response.text);
