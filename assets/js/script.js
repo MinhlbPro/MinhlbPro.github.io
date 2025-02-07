@@ -83,6 +83,7 @@ var typed = new Typed(".typing-text", {
     "ウェブサイトデザイン",
     "Kubernetes開発",
     "Android/iOSアプリ開発",
+    "埋め込みプログラミング",
   ],
   loop: true,
   typeSpeed: 50,
