@@ -117,5 +117,9 @@
     {
         "name": "Confluence",
         "icon": "https://img.icons8.com/color/48/000000/confluence.png"
+    },
+    {
+        "name": "Bitbucket",
+        "icon": "https://img.icons8.com/color/48/000000/bitbucket.png"
     }
 ]
