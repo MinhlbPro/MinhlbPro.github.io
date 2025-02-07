@@ -102,4 +102,8 @@
         "name": "Kubernetes",
         "icon": "https://img.icons8.com/fluency/48/000000/kubernetes.png"
     },
+    {
+        "name": "Wordpress",
+        "icon": "https://img.icons8.com/color/48/000000/wordpress.png"
+    },
 ]
