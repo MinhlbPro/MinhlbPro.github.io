@@ -103,6 +103,10 @@
         "icon": "https://img.icons8.com/fluency/48/000000/kubernetes.png"
     },
     {
+        "name": "Wordpress",
+        "icon": "https://img.icons8.com/color/48/000000/wordpress.png"
+    },
+    {
         "name": "Laravel",
         "icon": "https://img.icons8.com/fluency/48/000000/laravel.png"
     }
