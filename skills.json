@@ -109,5 +109,13 @@
     {
         "name": "Laravel",
         "icon": "https://img.icons8.com/fluency/48/000000/laravel.png"
+    },
+    {
+        "name": "Jira",
+        "icon": "https://img.icons8.com/color/48/000000/jira.png"
+    },
+    {
+        "name": "Confluence",
+        "icon": "https://img.icons8.com/color/48/000000/confluence.png"
     }
 ]
