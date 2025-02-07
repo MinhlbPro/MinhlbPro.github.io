@@ -75,12 +75,14 @@ document.addEventListener("visibilitychange", function () {
 // <!-- typed js effect starts -->
 var typed = new Typed(".typing-text", {
   strings: [
-    "content creator",
-    "frontend development",
-    "graphic designer",
-    "backend development",
-    "photographer",
-    "web designing",
+    "コンテンツ作成者",
+    "フロントエンド開発",
+    "VRゲーム開発",
+    "バックエンド開発",
+    "カメラマン",
+    "ウェブサイトデザイン",
+    "Kubernetes開発",
+    "Android/iOSアプリ開発",
   ],
   loop: true,
   typeSpeed: 50,
