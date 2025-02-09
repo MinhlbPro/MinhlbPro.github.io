@@ -64,10 +64,10 @@ $(document).ready(function () {
 
 document.addEventListener("visibilitychange", function () {
   if (document.visibilityState === "visible") {
-    document.title = "Portfolio | Minh";
+    document.title = "実績集 | ミン";
     $("#favicon").attr("href", "assets/images/doraemon.png");
   } else {
-    document.title = "Come Back To Portfolio";
+    document.title = "実績集に戻る";
     $("#favicon").attr("href", "assets/images/dragonball.jpg");
   }
 });
