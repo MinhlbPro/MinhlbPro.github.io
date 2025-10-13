@@ -1238,41 +1238,4 @@ form .button-area {
 #scroll-top.active {
   top: calc(100% - 12rem);
 }
-
-.language-dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.language-dropdown .dropbtn {
-  cursor: pointer;
-  padding: 5px 10px;
-  color: #fff;
-  text-decoration: none;
-}
-
-.language-dropdown .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #333;
-  min-width: 120px;
-  z-index: 1000;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.language-dropdown .dropdown-content a {
-  display: block;
-  padding: 8px 12px;
-  color: #fff;
-  text-decoration: none;
-}
-
-.language-dropdown .dropdown-content a:hover {
-  background-color: #555;
-}
-
-.language-dropdown:hover .dropdown-content {
-  display: block;
-}
 /* scroll top ends */
