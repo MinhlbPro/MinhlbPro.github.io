@@ -4,6 +4,12 @@ $(document).ready(function () {
     $(".navbar").toggleClass("nav-toggle");
   });
 
+  // Đóng menu khi click vào link trong navbar
+  $(".navbar ul li a").click(function () {
+    $("#menu").removeClass("fa-times");
+    $(".navbar").removeClass("nav-toggle");
+  });
+
   $(window).on("scroll load", function () {
     $("#menu").removeClass("fa-times");
     $(".navbar").removeClass("nav-toggle");
