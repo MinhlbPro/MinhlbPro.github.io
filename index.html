@@ -48,9 +48,14 @@
     <div class="content">
     <p>はじめまして、<br/> 私はミンと申します。<span></span></p>
     <p><span class="typing-text"></span>に興味があります。</p>
-    <a href="#about" class="btn"><span>自己紹介</span>
-      <i class="fas fa-arrow-circle-down"></i>
-    </a>
+    <div class="hero-btns">
+      <a href="#about" class="btn"><span>自己紹介</span>
+        <i class="fas fa-arrow-circle-down"></i>
+      </a>
+      <button type="button" class="btn btn-video" id="open-video" aria-haspopup="dialog">
+        <i class="fas fa-play-circle"></i><span>紹介動画</span>
+      </button>
+    </div>
     <div class="socials">
         <ul class="social-icons">
           <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/l%C3%AA-minh-03b467265" target="_blank"><i class="fab fa-linkedin"></i></a></li> 
@@ -67,6 +72,18 @@
 </div>
 </section>
 <!-- hero section ends -->
+
+<!-- intro video modal starts -->
+<div class="video-modal" id="video-modal" role="dialog" aria-modal="true" aria-label="紹介動画" hidden>
+  <div class="video-modal-inner">
+    <button type="button" class="video-close" id="close-video" aria-label="閉じる"><i class="fas fa-times"></i></button>
+    <video id="intro-video" controls playsinline preload="none" poster="./assets/images/video-poster.jpg">
+      <source src="./assets/videos/intro.mp4" type="video/mp4">
+      お使いのブラウザは動画再生に対応していません。
+    </video>
+  </div>
+</div>
+<!-- intro video modal ends -->
 
 
 <!-- about section starts -->
