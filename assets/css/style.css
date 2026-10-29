@@ -2138,3 +2138,59 @@ form .message textarea {
     border-radius: 1.4rem;
   }
 }
+
+/* ---------- Header + logo: phong cách "Music Dashboard" ---------- */
+header {
+  background: rgba(255, 248, 245, 0.92);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #ece6ff;
+  box-shadow: 0 8px 26px rgba(123, 106, 224, 0.14);
+}
+header .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.1rem;
+  color: var(--m-ink);
+  font-weight: 800;
+  letter-spacing: 0.02rem;
+  transition: color 0.2s;
+}
+header .logo i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.2rem;
+  height: 4.2rem;
+  font-size: 2.3rem;
+  color: #fff;
+  background: var(--m-grad);
+  border-radius: 1.4rem;
+  box-shadow: var(--m-glow);
+  transition: transform 0.25s, filter 0.25s;
+}
+header .logo:hover {
+  color: var(--m-deep);
+}
+header .logo:hover i {
+  background: var(--m-grad-pink);
+  transform: translateY(-2px) rotate(-6deg);
+  filter: brightness(1.05);
+}
+@media (max-width: 768px) {
+  header {
+    background: var(--m-cream);
+    border-bottom: 1px solid #ece6ff;
+    box-shadow: 0 6px 20px rgba(123, 106, 224, 0.14);
+  }
+  header .logo {
+    gap: 0.9rem;
+  }
+  header .logo i {
+    width: 3.8rem;
+    height: 3.8rem;
+    font-size: 2rem;
+    color: #fff;
+    border-radius: 1.2rem;
+  }
+}
