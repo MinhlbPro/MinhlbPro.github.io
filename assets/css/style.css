@@ -1325,3 +1325,402 @@ form .button-area {
   }
 }
 /* intro video button + modal ends */
+
+/* language switcher starts */
+header .navbar {
+  margin-left: auto;
+}
+#lang-switcher {
+  position: relative;
+  flex-shrink: 0;
+  margin-left: 2.5rem;
+  text-transform: none;
+}
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  height: 4rem;
+  padding: 0 1.3rem;
+  background: #f1f3ff;
+  border: 1px solid #d5daf5;
+  border-radius: 4rem;
+  cursor: pointer;
+  color: #0e2431;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: none;
+}
+.lang-btn:hover,
+.lang-btn[aria-expanded="true"] {
+  background: #e4e8ff;
+}
+.lang-btn:focus-visible {
+  outline: 2px solid #2506ad;
+  outline-offset: 2px;
+}
+.lang-btn .fa-globe {
+  font-size: 1.7rem;
+  color: #2506ad;
+}
+.lang-btn .caret {
+  font-size: 1.1rem;
+  color: #6b6f8d;
+  transition: transform 0.2s;
+}
+.lang-btn[aria-expanded="true"] .caret {
+  transform: rotate(180deg);
+}
+.lang-panel {
+  position: absolute;
+  top: calc(100% + 1.2rem);
+  right: 0;
+  width: 34rem;
+  padding: 1.6rem;
+  background: #fff;
+  border-radius: 1.8rem;
+  box-shadow: 0 12px 40px rgba(37, 6, 173, 0.18), 0 2px 8px rgba(0, 0, 0, 0.08);
+  z-index: 1002;
+  text-transform: none;
+}
+.lang-panel[hidden] {
+  display: none;
+}
+.lang-title {
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1d1148;
+}
+.lang-search {
+  width: 100%;
+  height: 4rem;
+  padding: 0 1.4rem;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.4rem;
+  color: #0e2431;
+  background: #f1f3ff;
+  border: 1px solid transparent;
+  border-radius: 2rem;
+  text-transform: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.lang-search:focus {
+  background: #fff;
+  border-color: #2506ad;
+}
+.lang-list {
+  list-style: none;
+  max-height: 32rem;
+  margin-top: 1rem;
+  padding-right: 0.4rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.lang-list::-webkit-scrollbar {
+  width: 0.6rem;
+}
+.lang-list::-webkit-scrollbar-thumb {
+  background: #c9ceef;
+  border-radius: 1rem;
+}
+.lang-list li[hidden] {
+  display: none;
+}
+.lang-list li button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem 1.2rem;
+  background: transparent;
+  border-radius: 1rem;
+  cursor: pointer;
+  color: #1d1148;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.5rem;
+  text-align: left;
+  text-transform: none;
+}
+.lang-list li button:hover,
+.lang-list li button:focus-visible {
+  background: #f1f3ff;
+}
+.lang-list li .en {
+  flex-shrink: 0;
+  font-size: 1.3rem;
+  color: #8a8fa8;
+}
+.lang-list li.active button {
+  background: #e4e8ff;
+  color: #2506ad;
+  font-weight: 700;
+}
+.lang-empty {
+  padding: 2rem 0 1rem;
+  text-align: center;
+  font-size: 1.4rem;
+  color: #8a8fa8;
+}
+/* màn hình vừa: chỉ hiện icon 🌐 */
+@media (max-width: 1200px) {
+  header {
+    padding: 1.7rem 4%;
+  }
+  #lang-switcher {
+    margin-left: 1.5rem;
+  }
+  .lang-btn {
+    width: 4rem;
+    padding: 0;
+    justify-content: center;
+  }
+  .lang-btn .label,
+  .lang-btn .caret {
+    display: none;
+  }
+}
+/* ===== ĐIỆN THOẠI: header gọn đẹp  [logo ........ 🌐 ☰] ===== */
+@media (max-width: 768px) {
+  header {
+    padding: 0 5%;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.94);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #eceefb;
+    box-shadow: 0 4px 18px rgba(37, 6, 173, 0.07);
+  }
+  header .logo {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 1.8rem;
+    letter-spacing: 0.02rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  header .logo i {
+    font-size: 2.3rem;
+    color: #2506ad;
+  }
+  /* nút 🌐 */
+  #lang-switcher {
+    order: 1;
+    margin-left: 0;
+  }
+  .lang-btn {
+    width: 4.2rem;
+    height: 4.2rem;
+    border-radius: 50%;
+  }
+  /* nút ☰ */
+  #menu {
+    order: 2;
+    margin-left: 0;
+    width: 4.2rem;
+    height: 4.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #fff;
+    background: linear-gradient(135deg, #2506ad, #4b3bdc);
+    border-radius: 1.3rem;
+    box-shadow: 0 4px 12px rgba(37, 6, 173, 0.35);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  #menu:active {
+    transform: scale(0.94);
+  }
+  /* menu trượt ra */
+  header .navbar {
+    top: 6.5rem;
+    width: 80%;
+    max-width: 34rem;
+    height: calc(100vh - 6.5rem);
+    border-radius: 2rem 0 0 2rem;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+  }
+  header .navbar ul {
+    padding: 2rem 1.2rem;
+  }
+  header .navbar ul li {
+    width: 100%;
+    margin: 0.4rem 0;
+  }
+  /* khung chọn ngôn ngữ */
+  .lang-panel {
+    position: fixed;
+    top: 7.5rem;
+    left: 1rem;
+    right: 1rem;
+    width: auto;
+  }
+  .lang-list {
+    max-height: 55vh;
+  }
+}
+@media (max-width: 380px) {
+  header .logo {
+    font-size: 1.55rem;
+  }
+  header .logo i {
+    font-size: 2rem;
+  }
+  .lang-btn,
+  #menu {
+    width: 3.8rem;
+    height: 3.8rem;
+  }
+}
+
+#google_translate_element {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+/* ẩn thanh/popup mặc định của Google và chống đẩy layout xuống */
+body {
+  top: 0 !important;
+  position: static !important;
+}
+.skiptranslate iframe,
+iframe.skiptranslate,
+.goog-te-banner-frame {
+  display: none !important;
+}
+#goog-gt-tt,
+.goog-tooltip,
+.goog-tooltip:hover {
+  display: none !important;
+}
+.goog-text-highlight {
+  background: none !important;
+  box-shadow: none !important;
+}
+/* language switcher ends */
+
+/* ===== NHỊP KHOẢNG CÁCH GIỮA CÁC SECTION (tablet + điện thoại) ===== */
+.education {
+  transform: none; /* bỏ lệch 5px làm hở mép trái */
+}
+@media (max-width: 900px) {
+  /* mọi section: trên/dưới bằng nhau, bỏ chiều cao tối thiểu gây khoảng trống thừa */
+  :root {
+    --sec-top: 4rem; /* đệm trên mỗi section */
+    --sec-bottom: 3.5rem; /* đệm dưới mỗi section (nhỏ hơn trên một chút cho cân mắt) */
+  }
+  section:not(.home) {
+    padding-top: var(--sec-top);
+    padding-bottom: var(--sec-bottom);
+  }
+  /* about là nền trắng nằm sát nền tím nên cần gọn hơn */
+  section.about {
+    padding-bottom: 3rem;
+  }
+  .skills,
+  .experience,
+  .contact {
+    min-height: 0;
+  }
+  .heading {
+    margin-bottom: 2.5rem;
+    line-height: 1.25;
+  }
+  .home {
+    padding-top: 8.5rem;
+    padding-bottom: 4rem;
+  }
+
+  /* giới thiệu -> kỹ năng: bỏ khoảng trắng 7rem */
+  .about .row {
+    padding: 0;
+    margin-bottom: 0;
+    gap: 1.5rem;
+  }
+  .about .row .image {
+    margin-top: 0;
+  }
+  .about .row .content {
+    padding: 0 0.5rem;
+  }
+  .resumebtn {
+    margin-top: 2.5rem;
+  }
+
+  /* kỹ năng */
+  .skills .container {
+    margin-top: 0;
+  }
+
+  /* học vấn */
+  .education .qoute {
+    margin-top: 0;
+    padding: 0 1rem;
+  }
+  .education .box-container .box {
+    margin-top: 2.5rem;
+  }
+
+  /* dự án: nếu chưa có dự án nào thì không chừa khoảng trống */
+  .work .box-container {
+    margin: 0 0 2rem;
+  }
+  .work .box-container:empty {
+    display: none;
+    margin: 0;
+  }
+  .work h2 {
+    padding: 0;
+  }
+
+  /* kinh nghiệm */
+  .experience .timeline {
+    margin-top: 0;
+  }
+
+  /* liên hệ -> chân trang */
+  .contact .container {
+    margin: 0 auto;
+  }
+
+  /* chân trang */
+  section.footer {
+    padding-top: 4rem;
+    padding-bottom: 2.5rem;
+  }
+  .footer .box-container .box {
+    margin: 0 1rem 3rem;
+  }
+  .footer .box-container .box h3 {
+    padding-bottom: 1.2rem;
+  }
+  .footer .credit {
+    padding-top: 2rem;
+    line-height: 1.6;
+  }
+}
+@media (max-width: 450px) {
+  :root {
+    --sec-top: 3.5rem;
+    --sec-bottom: 3rem;
+  }
+  section.about {
+    padding-bottom: 2.5rem;
+  }
+  .footer .box-container .box {
+    margin: 0 0.5rem 2.8rem;
+  }
+}
