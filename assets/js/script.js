@@ -100,6 +100,26 @@ var typed = new Typed(".typing-text", {
 });
 // <!-- typed js effect ends -->
 
+// <!-- soft tilt effect (ảnh, kỹ năng, học vấn, kinh nghiệm, liên hệ) -->
+// Chỉ bật trên thiết bị có chuột, và tắt nếu người dùng chọn "giảm chuyển động".
+function initSoftTilt(selector, opts) {
+  if (!window.VanillaTilt) return;
+  if (
+    window.matchMedia("(hover: none)").matches ||
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) {
+    return;
+  }
+  document.querySelectorAll(selector).forEach(function (el) {
+    if (el.vanillaTilt) return; // tránh khởi tạo hai lần
+    VanillaTilt.init(
+      el,
+      Object.assign({ max: 10, speed: 400, scale: 1.02 }, opts || {})
+    );
+  });
+}
+// <!-- soft tilt effect ends -->
+
 async function fetchData(type = "skills") {
   let response;
   type === "skills"
@@ -122,32 +142,54 @@ function showSkills(skills) {
             </div>`;
   });
   skillsContainer.innerHTML = skillHTML;
+  initSoftTilt(".skills .bar .info", { max: 14, scale: 1.06 });
 }
 
 function showProjects(projects) {
   let projectsContainer = document.querySelector("#work .box-container");
+  const esc = (t) =>
+    String(t == null ? "" : t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   let projectHTML = "";
-  projects
-    .slice(0, 10)
-    .filter((project) => project.category != "android")
-    .forEach((project) => {
-      projectHTML += `
-        <div class="box tilt">
-      <img draggable="false" src="/assets/images/projects/${project.image}.png" alt="project" />
-      <div class="content">
-        <div class="tag">
-        <h3>${project.name}</h3>
-        </div>
-        <div class="desc">
-          <p>${project.desc}</p>
-          <div class="btns">
-            <a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
-            <a href="${project.links.code}" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
+  projects.slice(0, 10).forEach((project) => {
+    const isCompany = project.type === "company";
+    const links = project.links || {};
+
+    // ảnh bìa: nếu có "image" thì dùng ảnh, nếu không thì dùng ô gradient + icon
+    const cover = project.image
+      ? `<img draggable="false" src="./assets/images/projects/${esc(project.image)}.png" alt="project" />`
+      : `<div class="proj-cover"><i class="fas ${esc(project.icon || "fa-code")}"></i></div>`;
+
+    const meta = [project.role, project.period].filter(Boolean).map(esc).join(" ｜ ");
+    const chips = (project.tech || [])
+      .map((t) => `<span class="chip">${esc(t)}</span>`)
+      .join("");
+
+    // chỉ hiện nút khi có link thật (dự án công ty = không có link)
+    const btns = [];
+    if (links.view) btns.push(`<a href="${esc(links.view)}" class="btn" target="_blank" rel="noopener"><i class="fas fa-eye"></i> View</a>`);
+    if (links.code) btns.push(`<a href="${esc(links.code)}" class="btn" target="_blank" rel="noopener">Code <i class="fas fa-code"></i></a>`);
+
+    const footer = btns.length
+      ? `<div class="btns">${btns.join("")}</div>`
+      : isCompany
+      ? `<p class="confidential"><i class="fas fa-lock"></i> 守秘義務のため、コード・詳細は非公開です</p>`
+      : "";
+
+    projectHTML += `
+      <div class="box tilt${isCompany ? " is-company" : ""}">
+        ${cover}
+        ${isCompany ? '<span class="badge-company">社内プロジェクト</span>' : '<span class="badge-company personal">個人開発</span>'}
+        <div class="content">
+          <div class="tag"><h3>${esc(project.name)}</h3></div>
+          <div class="desc">
+            ${meta ? `<p class="meta">${meta}</p>` : ""}
+            <p>${esc(project.desc)}</p>
+            ${chips ? `<div class="chips notranslate" translate="no">${chips}</div>` : ""}
+            ${footer}
           </div>
         </div>
-      </div>
-    </div>`;
-    });
+      </div>`;
+  });
   projectsContainer.innerHTML = projectHTML;
 
   // <!-- tilt js effect starts -->
@@ -303,3 +345,9 @@ srtop.reveal(".contact .container .form-group", { delay: 400 });
   });
 })();
 // <!-- intro video modal ends -->
+
+// <!-- tilt cho các mục còn lại -->
+initSoftTilt(".education .box .image", { max: 8 });
+initSoftTilt(".experience .container .content", { max: 8 });
+initSoftTilt(".contact .image-box", { max: 10 });
+// <!-- tilt cho các mục còn lại ends -->
