@@ -1488,9 +1488,7 @@ header .navbar {
   header {
     padding: 0 5%;
     gap: 1rem;
-    background: rgba(255, 255, 255, 0.94);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    background: #fff;
     border-bottom: 1px solid #eceefb;
     box-shadow: 0 4px 18px rgba(37, 6, 173, 0.07);
   }
@@ -1540,23 +1538,132 @@ header .navbar {
   #menu:active {
     transform: scale(0.94);
   }
-  /* menu trượt ra */
+  /* ===== MENU TOÀN MÀN HÌNH ===== */
   header .navbar {
+    position: fixed;
     top: 6.5rem;
-    width: 80%;
-    max-width: 34rem;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: none;
     height: calc(100vh - 6.5rem);
-    border-radius: 2rem 0 0 2rem;
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+    height: calc(100dvh - 6.5rem);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    border-radius: 0;
+    box-shadow: none;
     overflow-y: auto;
+    background:
+      radial-gradient(circle at 88% 6%, rgba(90, 70, 240, 0.55), transparent 45%),
+      radial-gradient(circle at 8% 96%, rgba(255, 214, 10, 0.14), transparent 42%),
+      linear-gradient(160deg, #0e0f31 0%, #170c55 55%, #2a0a86 100%);
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.38s cubic-bezier(0.22, 0.8, 0.3, 1),
+      opacity 0.25s ease, visibility 0s linear 0.38s;
+  }
+  header .navbar.nav-toggle {
+    right: 0;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
   }
   header .navbar ul {
-    padding: 2rem 1.2rem;
+    flex-flow: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 2.4rem 2rem 3rem;
   }
   header .navbar ul li {
     width: 100%;
-    margin: 0.4rem 0;
+    margin: 0.5rem 0;
+    text-align: left;
+    border-radius: 0;
   }
+  header .navbar ul li a {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.3rem 1.6rem;
+    font-size: 1.9rem;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+    color: rgba(255, 255, 255, 0.86);
+    border: none;
+    border-radius: 1.6rem;
+    background: transparent;
+  }
+  /* icon từng mục (Font Awesome) */
+  header .navbar ul li a::before {
+    flex: 0 0 4.2rem;
+    width: 4.2rem;
+    height: 4.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 1.7rem;
+    color: #b9c2ff;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1.2rem;
+  }
+  header .navbar ul li a[href="#home"]::before { content: "\f015"; }
+  header .navbar ul li a[href="#about"]::before { content: "\f007"; }
+  header .navbar ul li a[href="#skills"]::before { content: "\f5fc"; }
+  header .navbar ul li a[href="#education"]::before { content: "\f19d"; }
+  header .navbar ul li a[href="#work"]::before { content: "\f0b1"; }
+  header .navbar ul li a[href="#experience"]::before { content: "\f1da"; }
+  header .navbar ul li a[href="#contact"]::before { content: "\f0e0"; }
+  /* mũi tên bên phải */
+  header .navbar ul li a::after {
+    content: "\f054";
+    margin-left: auto;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 1.2rem;
+    opacity: 0.35;
+  }
+  header .navbar ul li a:hover,
+  header .navbar ul li a:active {
+    padding: 1.3rem 1.6rem;
+    color: #fff;
+    border: none;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  /* mục đang xem: nền sáng + icon vàng, KHÔNG gạch chân */
+  header .navbar ul li a.active {
+    padding: 1.3rem 1.6rem;
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+  }
+  header .navbar ul li a.active::before {
+    color: #1a1060;
+    background: #ffd60a;
+  }
+  header .navbar ul li a.active::after {
+    opacity: 0.9;
+    color: #ffd60a;
+  }
+  /* hiện lần lượt từng mục khi mở menu */
+  header .navbar.nav-toggle ul li {
+    animation: navItemIn 0.45s cubic-bezier(0.22, 0.8, 0.3, 1) both;
+  }
+  header .navbar.nav-toggle ul li:nth-child(1) { animation-delay: 0.06s; }
+  header .navbar.nav-toggle ul li:nth-child(2) { animation-delay: 0.11s; }
+  header .navbar.nav-toggle ul li:nth-child(3) { animation-delay: 0.16s; }
+  header .navbar.nav-toggle ul li:nth-child(4) { animation-delay: 0.21s; }
+  header .navbar.nav-toggle ul li:nth-child(5) { animation-delay: 0.26s; }
+  header .navbar.nav-toggle ul li:nth-child(6) { animation-delay: 0.31s; }
+  header .navbar.nav-toggle ul li:nth-child(7) { animation-delay: 0.36s; }
+  /* khoá cuộn trang phía sau khi menu mở */
+  html:has(.navbar.nav-toggle) {
+    overflow: hidden;
+  }
+
   /* khung chọn ngôn ngữ */
   .lang-panel {
     position: fixed;
@@ -1722,5 +1829,312 @@ iframe.skiptranslate,
   }
   .footer .box-container .box {
     margin: 0 0.5rem 2.8rem;
+  }
+}
+
+@keyframes navItemIn {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* =====================================================================
+   NÚT & ICON — phong cách "Music Dashboard" (pastel tím/hồng, soft UI)
+   Chỉnh màu chung ở các biến --m-* bên dưới.
+   ===================================================================== */
+:root {
+  --m-lav: #a393e6;
+  --m-purple: #7b6ae0;
+  --m-deep: #5b4bc8;
+  --m-pink: #ff8fb1;
+  --m-cream: #fff8f5;
+  --m-ink: #2b2057;
+  --m-grad: linear-gradient(135deg, #a898f0 0%, #7b6ae0 100%);
+  --m-grad-pink: linear-gradient(135deg, #ffb0c6 0%, #ff7ea3 100%);
+  --m-grad-blue: linear-gradient(135deg, #a5c8ff 0%, #6d9bf0 100%);
+  --m-grad-deep: linear-gradient(135deg, #8f7ee8 0%, #5b4bc8 100%);
+  --m-raise: 8px 10px 22px rgba(123, 106, 224, 0.28), -6px -6px 16px rgba(255, 255, 255, 0.9);
+  --m-raise-sm: 4px 6px 14px rgba(123, 106, 224, 0.25), -3px -3px 10px rgba(255, 255, 255, 0.9);
+  --m-glow: 0 10px 24px rgba(123, 106, 224, 0.42), inset 0 2px 0 rgba(255, 255, 255, 0.35);
+}
+
+/* ---------- Nút chính (hero) ---------- */
+.home .btn,
+.home .btn:hover {
+  background: var(--m-grad);
+  color: #fff;
+  border-radius: 5rem;
+  box-shadow: var(--m-glow);
+}
+.home .btn:hover {
+  filter: brightness(1.07);
+  transform: translateY(-2px);
+}
+.home .hero-btns .btn-video,
+.home .hero-btns .btn-video:hover {
+  background: var(--m-cream);
+  color: var(--m-deep);
+  box-shadow: var(--m-raise-sm);
+}
+.home .hero-btns .btn-video:hover {
+  transform: translateY(-2px);
+}
+.home .hero-btns .btn-video i {
+  color: var(--m-purple);
+}
+
+/* ---------- Icon mạng xã hội: ô bo góc gradient ---------- */
+.social-icons a {
+  border-radius: 1.4rem;
+  color: #fff;
+  box-shadow: var(--m-glow);
+}
+.social-icons a.linkedin,
+.social-icons a.linkedin:hover { background: var(--m-grad); color: #fff; }
+.social-icons a.github,
+.social-icons a.github:hover { background: var(--m-grad-deep); color: #fff; }
+.social-icons a.twitter,
+.social-icons a.twitter:hover { background: var(--m-grad-blue); color: #fff; }
+.social-icons a.facebook,
+.social-icons a.facebook:hover { background: var(--m-grad-pink); color: #fff; }
+.social-icons a:hover,
+.social-icons a:focus {
+  filter: brightness(1.06);
+  transform: translateY(-3px);
+}
+
+/* ---------- Nút 履歴書 / 職務経歴書 ---------- */
+.resumebtn .btn {
+  border-radius: 5rem;
+  padding: 1.5rem 2.8rem;
+  color: #fff;
+  box-shadow: var(--m-glow);
+}
+.btn-primary {
+  background: var(--m-grad) !important;
+  color: #fff !important;
+}
+.btn-warning {
+  background: var(--m-grad-pink) !important;
+  color: #fff !important;
+  box-shadow: 0 10px 24px rgba(255, 126, 163, 0.42), inset 0 2px 0 rgba(255, 255, 255, 0.4);
+}
+.resumebtn .btn:hover {
+  filter: brightness(1.07);
+  transform: translateY(-2px);
+}
+
+/* ---------- Nút "一覧を見る" + nút dự án ---------- */
+.work .viewall .btn,
+.work .viewall .btn:hover {
+  background: var(--m-grad);
+  color: #fff;
+  border: none;
+  border-radius: 5rem;
+  box-shadow: var(--m-glow);
+}
+.work .viewall .btn:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+}
+.work .desc .btns .btn,
+.work .desc .btns .btn:hover {
+  background: var(--m-grad);
+  color: #fff;
+  border: none;
+  border-radius: 5rem;
+}
+
+/* ---------- Form liên hệ ---------- */
+form .field i,
+form .message i {
+  color: var(--m-purple);
+}
+form .field input,
+form .message textarea {
+  border-radius: 1.4rem;
+  border: 1px solid #d7d0f6;
+}
+.field input:focus,
+.message textarea:focus {
+  border: 2px solid var(--m-purple);
+}
+.field input:focus ~ i,
+.message textarea:focus ~ i {
+  color: var(--m-deep);
+}
+.button-area button,
+.button-area button:hover {
+  background: var(--m-grad);
+  border-radius: 5rem;
+  padding: 1.3rem 2.8rem;
+  box-shadow: var(--m-glow);
+}
+.button-area button:hover {
+  filter: brightness(1.07);
+  transform: translateY(-2px);
+}
+
+/* ---------- Icon tiêu đề section: ô gradient ---------- */
+.heading > i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 5.4rem;
+  height: 5.4rem;
+  margin-right: 1rem;
+  vertical-align: middle;
+  font-size: 2.4rem;
+  color: #fff;
+  background: var(--m-grad);
+  border-radius: 1.7rem;
+  box-shadow: var(--m-glow);
+}
+
+/* ---------- Icon kỹ năng: ô kem nổi ---------- */
+.skills .container .bar .info img {
+  width: 6.4rem;
+  height: 6.4rem;
+  padding: 1.2rem;
+  object-fit: contain;
+  background: var(--m-cream);
+  border-radius: 1.8rem;
+  box-shadow: var(--m-raise-sm);
+  transition: transform 0.25s;
+}
+.skills .container .bar:hover .info img {
+  transform: translateY(-3px) scale(1.06);
+}
+
+/* ---------- Mốc thời gian (timeline) ---------- */
+.experience .container::after {
+  width: 3.6rem;
+  height: 3.6rem;
+  top: 14px;
+  right: -1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1;
+  color: #fff;
+  background: var(--m-grad);
+  border: 3px solid #fff;
+  box-shadow: 0 4px 12px rgba(123, 106, 224, 0.45);
+}
+.experience .right::after {
+  left: -1.8rem;
+  right: auto;
+}
+@media screen and (max-width: 600px) {
+  .experience .container::after {
+    font-size: 1.5rem;
+  }
+  .experience .left::after,
+  .experience .right::after {
+    left: calc(31px - 1.8rem);
+    right: auto;
+  }
+}
+
+/* ---------- Footer ---------- */
+.footer .box-container .box .share a {
+  background: var(--m-grad);
+  color: #fff;
+  border-radius: 1.3rem;
+  box-shadow: 0 6px 16px rgba(123, 106, 224, 0.35);
+}
+.footer .box-container .box .share a:hover {
+  background: var(--m-grad-pink);
+  color: #fff;
+  border: none;
+  transform: translateY(-3px);
+}
+.footer .box-container .box p i {
+  color: #b9a9ff;
+}
+
+/* ---------- Nút cuộn lên + đóng video ---------- */
+#scroll-top {
+  background: var(--m-grad);
+  color: #fff;
+  box-shadow: var(--m-glow);
+}
+.video-close:hover {
+  background: var(--m-grad-pink);
+}
+
+/* ---------- Header: nút ngôn ngữ, menu, khung ngôn ngữ ---------- */
+.lang-btn {
+  background: var(--m-cream);
+  border: none;
+  color: var(--m-ink);
+  box-shadow: var(--m-raise-sm);
+}
+.lang-btn:hover,
+.lang-btn[aria-expanded="true"] {
+  background: var(--m-cream);
+  box-shadow: var(--m-raise-sm), 0 0 0 2px #cfc6f7;
+}
+.lang-btn .fa-globe {
+  color: var(--m-purple);
+}
+.lang-btn:focus-visible,
+.lang-btn:focus-visible {
+  outline: 2px solid var(--m-purple);
+}
+.lang-panel {
+  background: var(--m-cream);
+  border-radius: 2.2rem;
+  box-shadow: var(--m-raise);
+}
+.lang-search {
+  background: #fff;
+  border: 1px solid #e6e0fa;
+}
+.lang-search:focus {
+  border-color: var(--m-purple);
+}
+.lang-list li button:hover,
+.lang-list li button:focus-visible {
+  background: #f1ecff;
+}
+.lang-list li.active button {
+  background: #ece6ff;
+  color: var(--m-deep);
+}
+.lang-list::-webkit-scrollbar-thumb {
+  background: #cfc6f7;
+}
+@media (max-width: 768px) {
+  #menu {
+    background: var(--m-grad);
+    box-shadow: var(--m-glow);
+  }
+  /* mục đang xem trong menu: viên thuốc kem + chữ tím (giống sidebar Music) */
+  header .navbar ul li a.active {
+    background: var(--m-cream);
+    color: var(--m-deep);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  header .navbar ul li a.active::before {
+    background: var(--m-grad);
+    color: #fff;
+  }
+  header .navbar ul li a.active::after {
+    color: var(--m-purple);
+    opacity: 1;
+  }
+  .heading > i {
+    width: 4.4rem;
+    height: 4.4rem;
+    font-size: 2rem;
+    border-radius: 1.4rem;
   }
 }
