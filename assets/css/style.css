@@ -2194,3 +2194,174 @@ header .logo:hover i {
     border-radius: 1.2rem;
   }
 }
+
+/* ---------- Dự án: thẻ công ty (ẩn code) + thẻ cá nhân ---------- */
+.work .box-container .box {
+  height: 36rem;
+}
+.work .box-container .box:hover .content {
+  top: 12%;
+}
+.work .proj-cover {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 4.5rem;
+  background: var(--m-grad-deep);
+}
+.work .proj-cover i {
+  font-size: 7rem;
+  color: rgba(255, 255, 255, 0.92);
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.25));
+}
+.work .box.is-company .proj-cover {
+  background: var(--m-grad);
+}
+.work .badge-company {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  z-index: 2;
+  padding: 0.5rem 1.2rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--m-deep);
+  background: var(--m-cream);
+  border-radius: 5rem;
+  box-shadow: var(--m-raise-sm);
+}
+.work .badge-company.personal {
+  color: #fff;
+  background: var(--m-grad-pink);
+}
+.work .box-container .box .content .tag {
+  background: var(--m-cream);
+  border-bottom: 1px solid #ece6ff;
+}
+.work .box-container .box .content .tag h3 {
+  color: var(--m-ink);
+  font-size: 1.8rem;
+}
+.work .box-container .box .content {
+  background: rgba(255, 248, 245, 0.97);
+}
+.work .desc {
+  margin: 1.4rem 1.8rem;
+}
+.work .desc .meta {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--m-purple);
+  margin-bottom: 0.6rem;
+}
+.work .desc p {
+  font-size: 1.4rem;
+  line-height: 1.55;
+}
+.work .chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+.work .chip {
+  padding: 0.3rem 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--m-deep);
+  background: #ece6ff;
+  border-radius: 5rem;
+}
+.work .confidential {
+  margin-top: 1.2rem;
+  font-size: 1.25rem !important;
+  color: #8a8fa8;
+}
+.work .confidential i {
+  color: var(--m-purple);
+  margin-right: 0.4rem;
+}
+.work .desc .btns {
+  margin-top: 1.2rem;
+}
+
+/* ---------- Ghi chú dưới tiêu đề dự án ---------- */
+.work .work-note {
+  margin: 1.2rem auto 0;
+  max-width: 80rem;
+  text-align: center;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: #cfc6f7;
+}
+.work .work-note i {
+  margin-right: 0.5rem;
+  color: #b9a9ff;
+}
+
+/* ---------- Hiệu ứng tilt 3D cho ảnh / kỹ năng / học vấn / kinh nghiệm / liên hệ ---------- */
+.skills .bar .info,
+.education .box .image,
+.experience .container .content,
+.contact .image-box {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* ---------- Thẻ dự án: không để thẻ cuối bị kéo giãn hết hàng ---------- */
+.work .box-container {
+  justify-content: center;
+}
+.work .box-container .box {
+  max-width: 42rem;
+}
+
+/* ---------- Liên hệ: canh giữa khung form (trước đây bị lệch trái, thừa khoảng trống bên phải) ---------- */
+@media (min-width: 901px) {
+  .contact .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ---------- Tiêu đề section: khoảng cách xuống nội dung giống mục スキルと能力 (2rem) ---------- */
+@media (min-width: 901px) {
+  .heading {
+    margin-bottom: 2rem;
+  }
+  /* 学歴: tiêu đề -> câu trích dẫn -> thẻ, cách đều và thoáng hơn */
+  .education .heading {
+    margin-bottom: 1.2rem;
+  }
+  .education .qoute {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+}
+
+/* ---------- プロジェクト一覧: bố cục giống 学歴 (tiêu đề -> ghi chú -> thẻ) ---------- */
+.work .work-note {
+  max-width: 90%;
+  margin: 0 auto;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.6;
+  color: #e6e0fa;
+  text-align: center;
+}
+@media (min-width: 901px) {
+  .work .heading {
+    margin-bottom: 1.2rem;
+  }
+  .work .box-container {
+    margin: 3rem 2rem 2rem;
+  }
+}
+@media (max-width: 900px) {
+  .work .box-container {
+    margin: 2.5rem 0 2rem;
+  }
+}
