@@ -1,12 +1,55 @@
 [
-    {
-      "name": "NotyStack Android",
-      "desc": "Fully fledged android CRUD app based on different design patterns. Built using Java, XML, SQLite, Firebase, RoomDB, MVVM.",
-      "image": "notystackandroid",
-      "category": "android",
-      "links": {
-        "view": "https://www.linkedin.com/posts/jigar-sable_androiddev-androidstudio-java-activity-6955224473822199808-JT0j",
-        "code": "https://github.com/jigar-sable/notystack-android"
-      }
+  {
+    "name": "Kubernetes基盤の開発・運用",
+    "type": "company",
+    "icon": "fa-dharmachakra",
+    "role": "技術リーダー",
+    "period": "2021/11 - 現在",
+    "tech": ["Kubernetes", "Helm", "ArgoCD", "HPA", "AWS"],
+    "desc": "Kubernetes上で動作するシステムの開発・管理。HPAによるスケーリング最適化と、Helmを用いたデプロイ自動化に取り組みました。",
+    "links": {}
+  },
+  {
+    "name": "Webシステムの開発・運用",
+    "type": "company",
+    "icon": "fa-globe",
+    "role": "リーダー（3〜5名）",
+    "period": "2021/11 - 現在",
+    "tech": ["Laravel", "WordPress", "REST API", "EC2", "S3", "SES"],
+    "desc": "バックエンド・フロントエンドの開発から、AWS環境でのインフラ構築・運用、CI/CDパイプラインの整備までを担当しました。",
+    "links": {}
+  },
+  {
+    "name": "iOS / Androidアプリ開発",
+    "type": "company",
+    "icon": "fa-mobile-alt",
+    "role": "モバイル開発者",
+    "period": "2013 - 2021",
+    "tech": ["Objective-C", "Java", "iOS", "Android"],
+    "desc": "複数の企業でスマートフォン向けアプリの設計・実装を担当し、いくつかの大規模プロジェクトを成功させました。",
+    "links": {}
+  },
+  {
+    "name": "社内向け生産システム",
+    "type": "company",
+    "icon": "fa-industry",
+    "role": "社内SE",
+    "period": "2018 - 2019",
+    "tech": ["PCソフトウェア", "タブレットアプリ", "ロボット工学"],
+    "desc": "生産品質統括部にて、社内向けのPCソフトウェアおよびタブレットアプリケーションを開発しました。",
+    "links": {}
+  },
+  {
+    "name": "ポートフォリオサイト",
+    "type": "personal",
+    "icon": "fa-laptop-code",
+    "role": "個人開発",
+    "period": "2025",
+    "tech": ["HTML5", "CSS3", "JavaScript", "jQuery"],
+    "desc": "このサイト自体が個人プロジェクトです。多言語切り替え、紹介動画、お問い合わせフォームなどを実装しています。",
+    "links": {
+      "view": "https://tintucthethao.github.io",
+      "code": "https://github.com/tintucthethao/tintucthethao.github.io"
     }
+  }
 ]
