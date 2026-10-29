@@ -39,7 +39,7 @@ $(document).ready(function () {
     e.preventDefault();
     $("html, body").animate(
       {
-        scrollTop: $($(this).attr("href")).offset().top,
+        scrollTop: Math.max(0, $($(this).attr("href")).offset().top - $("header").outerHeight()),
       },
       500,
       "linear"
