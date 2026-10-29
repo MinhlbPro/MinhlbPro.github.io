@@ -270,3 +270,36 @@ srtop.reveal(".experience .timeline .container", { interval: 400 });
 /* SCROLL CONTACT */
 srtop.reveal(".contact .container", { delay: 400 });
 srtop.reveal(".contact .container .form-group", { delay: 400 });
+
+// <!-- intro video modal starts -->
+(function () {
+  const modal = document.getElementById("video-modal");
+  const video = document.getElementById("intro-video");
+  const openBtn = document.getElementById("open-video");
+  const closeBtn = document.getElementById("close-video");
+  if (!modal || !video || !openBtn) return;
+
+  function openVideo() {
+    modal.hidden = false;
+    document.body.style.overflow = "hidden";
+    video.play().catch(function () {});
+    closeBtn.focus();
+  }
+  function closeVideo() {
+    video.pause();
+    video.currentTime = 0;
+    modal.hidden = true;
+    document.body.style.overflow = "";
+    openBtn.focus();
+  }
+
+  openBtn.addEventListener("click", openVideo);
+  closeBtn.addEventListener("click", closeVideo);
+  modal.addEventListener("click", function (e) {
+    if (e.target === modal) closeVideo();
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && !modal.hidden) closeVideo();
+  });
+})();
+// <!-- intro video modal ends -->
